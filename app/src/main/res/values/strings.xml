@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MyLibrary</string>
+    <string name="delete">Удалить</string>
+    <string name="search">search</string>
+    <string name="catalog_title">Каталог</string>
+    <string name="my_books_title">Мои книги</string>
+</resources>
