@@ -4,4 +4,10 @@
     <string name="search">search</string>
     <string name="catalog_title">Каталог</string>
     <string name="my_books_title">Мои книги</string>
+    <string name="refresh">Обновить</string>
+    <string name="book_content_description">book image</string>
+    <string name="book_tool_content_description">book tool image</string>
+    <string name="ok">Ок</string>
+    <string name="cancel">Отмена</string>
+    <string name="edit_book_title">Введите новое имя</string>
 </resources>
