@@ -3,13 +3,11 @@
     <item
         android:id="@+id/nav_catalog"
         android:enabled="true"
-        android:menuCategory="container"
         android:icon="@drawable/ic_catalog"
         android:title="@string/catalog_title" />
     <item
         android:id="@+id/nav_my_books"
         android:enabled="true"
-        android:menuCategory="container"
         android:icon="@drawable/ic_my_books"
         android:title="@string/my_books_title" />
 </menu>
