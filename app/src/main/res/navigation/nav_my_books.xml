@@ -7,7 +7,32 @@
 
     <fragment
         android:id="@+id/myBooksFragment"
-        android:name="com.example.mylibrary.ui.mybooks.MyBooksFragment"
+        android:name="com.kuymakov.mylibrary.ui.mybooks.MyBooksFragment"
         android:label="Мои книги"
-        tools:layout="@layout/fragment_my_books" />
+        tools:layout="@layout/fragment_my_books" >
+        <action
+            android:id="@+id/action_myBooksFragment_to_myBooksModalBottomSheet"
+            app:destination="@id/modalBottomSheet" />
+    </fragment>
+    <dialog
+        android:id="@+id/modalBottomSheet"
+        android:name="com.kuymakov.mylibrary.ui.mybooks.modalbottomsheet.ModalBottomSheet"
+        android:label="modal_bottom_sheet"
+        tools:layout="@layout/modal_bottom_sheet" >
+        <action
+            android:id="@+id/action_modalBottomSheet_to_booksReaderFragment"
+            app:destination="@id/booksReaderFragment" />
+        <argument
+            android:name="book"
+            app:argType="com.kuymakov.mylibrary.models.MyBook" />
+    </dialog>
+    <fragment
+        android:id="@+id/booksReaderFragment"
+        android:name="com.kuymakov.mylibrary.ui.booksreader.BooksReaderFragment"
+        android:label="fragment_books_reader"
+        tools:layout="@layout/fragment_books_reader">
+        <argument
+            android:name="book"
+            app:argType="com.kuymakov.mylibrary.models.MyBook" />
+    </fragment>
 </navigation>

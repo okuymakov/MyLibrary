@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/catalogFragment"
-        android:name="com.example.mylibrary.ui.catalog.CatalogFragment"
+        android:name="com.kuymakov.mylibrary.ui.catalog.CatalogFragment"
         android:label="Каталог"
-        tools:layout="@layout/fragment_catalog" >
+        tools:layout="@layout/fragment_catalog">
         <action
             android:id="@+id/action_catalogFragment_to_booksListFragment"
             app:destination="@id/booksListFragment"
@@ -17,15 +17,17 @@
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@animator/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim">
-            <argument
-                android:name="category"
-                app:argType="string"
-                app:nullable="false"
-                />
         </action>
     </fragment>
     <fragment
         android:id="@+id/booksListFragment"
-        android:name="com.example.mylibrary.ui.bookslist.BooksListFragment"
-        tools:layout="@layout/fragment_books_list" />
+        android:name="com.kuymakov.mylibrary.ui.bookslist.BooksListFragment"
+        tools:layout="@layout/fragment_books_list">
+        <argument
+            android:name="categoryName"
+            app:argType="string" />
+        <argument
+            android:name="category"
+            app:argType="string" />
+    </fragment>
 </navigation>
