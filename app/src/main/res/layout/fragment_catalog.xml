@@ -7,7 +7,7 @@
     tools:context=".ui.catalog.CatalogFragment">
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/catalog"
-        android:paddingHorizontal="10dp"
+        android:padding="5dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"

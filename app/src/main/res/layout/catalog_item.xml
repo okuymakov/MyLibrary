@@ -1,35 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/catalog_item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="10dp"
-    app:cardCornerRadius="@dimen/cardview_default_radius"
-    >
+    android:layout_margin="5dp"
+    android:elevation="10dp"
+    app:cardElevation="15dp"
+    app:shapeAppearanceOverlay="@style/MyShapeAppearanceOverlay">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="15dp"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/catalog_image"
             android:layout_width="match_parent"
             android:layout_height="160dp"
-             />
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/book_placeholder"
+            app:shapeAppearanceOverlay="@style/MyShapeAppearanceOverlay" />
 
         <TextView
             android:id="@+id/catalog_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingVertical="15dp"
-            android:textSize="15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="@color/black"
+            android:paddingHorizontal="10dp"
             android:ellipsize="end"
-            android:maxLines="1"
-            android:gravity="center_horizontal"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:paddingTop="5dp"
+            android:textSize="14sp"
             tools:text="Name of catalog" />
     </LinearLayout>
 

@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipe_refresh"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.bookslist.BooksListFragment">
-    <androidx.recyclerview.widget.RecyclerView
+
+    <com.skydoves.androidveil.VeilRecyclerFrameView
         android:id="@+id/books_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:paddingHorizontal="25dp"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:spanCount="2"
-        tools:listitem="@layout/books_item" />
-</FrameLayout>
+        android:paddingHorizontal="5dp"
+        app:veilFrame_baseAlpha="0.6"
+        app:veilFrame_baseColor="@color/cardview_dark_background"
+        app:veilFrame_highlightAlpha="1.0"
+        app:veilFrame_highlightColor="@color/cardview_light_background"
+        app:veilFrame_layout="@layout/books_item"
+        app:veilFrame_radius="8dp"
+        app:veilFrame_shimmerEnable="true"
+        app:veilFrame_veiled="true" />
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
