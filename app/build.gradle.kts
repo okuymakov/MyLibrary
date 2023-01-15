@@ -1,17 +1,18 @@
 plugins {
     id("com.android.application")
-    id("kotlin-android")
-    kotlin("plugin.serialization") version "1.6.0"
-    kotlin("kapt")
+    kotlin("android")
     id("dagger.hilt.android.plugin")
     id("androidx.navigation.safeargs.kotlin")
+    kotlin("plugin.serialization") version "1.6.0"
+    id("kotlin-parcelize")
+    kotlin("kapt")
 }
 
 android {
     compileSdk = 31
 
     defaultConfig {
-        applicationId = "com.example.mylibrary"
+        applicationId = "com.kuymakov.mylibrary"
         minSdk = 21
         targetSdk = 31
         versionCode = 1
@@ -42,24 +43,24 @@ android {
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.7.0")
-    implementation("androidx.appcompat:appcompat:1.4.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.2")
+    implementation("androidx.core:core-ktx:1.8.0")
+    implementation("androidx.appcompat:appcompat:1.4.2")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 
     //material design
-    implementation("com.google.android.material:material:1.4.0")
+    implementation("com.google.android.material:material:1.6.1")
 
     //lifecycle
     val lifecycleVersion = "2.4.0"
-    implementation("androidx.fragment:fragment-ktx:1.4.0")
+    implementation("androidx.fragment:fragment-ktx:1.5.4")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
 
     //kotlin
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
 
     //navigation
-    val navVersion = "2.3.5"
+    val navVersion = "2.4.0-rc01"
     implementation("androidx.navigation:navigation-runtime-ktx:$navVersion")
     implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")
     implementation("androidx.navigation:navigation-ui-ktx:$navVersion")
@@ -99,7 +100,13 @@ dependencies {
     implementation("androidx.viewpager2:viewpager2:1.0.0")
 
     //skeleton loading
-    implementation("com.facebook.shimmer:shimmer:0.5.0")
+    implementation("com.github.skydoves:androidveil:1.1.2")
+
+    //photoview
+    implementation("com.github.chrisbanes:PhotoView:2.0.0")
+
+    //swipe-to-refresh
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
 }
 
 kapt {
