@@ -16,8 +16,7 @@ class ModalBottomSheetAdapter(
         private val onClick: (Tool) -> Unit,
     ) :
         RecyclerView.ViewHolder(binding.root) {
-        private val name = binding.name
-        private val icon = binding.icon
+        private val toolItem = binding.toolItem
         private var tool: Tool? = null
 
         init {
@@ -28,8 +27,8 @@ class ModalBottomSheetAdapter(
 
         fun bind(tool: Tool) {
             this.tool = tool
-            name.text = tool.name
-            icon.setImageResource(tool.iconSrc)
+            toolItem.text = tool.name
+            toolItem.setCompoundDrawablesWithIntrinsicBounds(tool.iconSrc, 0, 0, 0)
         }
 
     }

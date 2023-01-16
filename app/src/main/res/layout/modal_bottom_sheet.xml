@@ -17,8 +17,7 @@
         android:layout_margin="10dp"
         android:layout_gravity="center"
         android:orientation="vertical"
-        android:paddingHorizontal="25dp"
-        android:paddingTop="20dp"
+        android:paddingVertical="10dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/modal_bottom_sheet_item" />
 
