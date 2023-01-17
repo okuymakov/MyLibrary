@@ -28,15 +28,12 @@ class BooksListFragment : BaseFragment<FragmentBooksListBinding>() {
     override val inflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentBooksListBinding
         get() = FragmentBooksListBinding::inflate
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        actionBar?.title = args.categoryName
-        viewModel.fetchBooks(query = "subject:${args.category}")
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel.fetchBooks(query = "subject:${args.category}")
         showBackButton(true)
+        actionBar?.title = args.categoryName
         bind()
         val (list, adapter) = setupList()
         setupListSideEffects(list, adapter, view)
@@ -49,7 +46,7 @@ class BooksListFragment : BaseFragment<FragmentBooksListBinding>() {
             setVeilLayout(R.layout.books_item)
             setAdapter(adapter)
             setLayoutManager(GridLayoutManager(context, 2))
-            addVeiledItems(15)
+            addVeiledItems(10)
         }
         return Pair(list, adapter)
     }

@@ -13,6 +13,6 @@ fun Fragment.showBackButton(show: Boolean) {
     }
 }
 
-fun Fragment.hideKeyboard() {
-    view?.let { activity?.hideKeyboard() }
+fun Fragment.showKeyboard() {
+    view?.let { activity?.showKeyboard() }
 }

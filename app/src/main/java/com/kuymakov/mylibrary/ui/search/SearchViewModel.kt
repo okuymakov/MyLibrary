@@ -16,15 +16,16 @@ import javax.inject.Inject
 @HiltViewModel
 class SearchViewModel @Inject constructor(private val repo: BooksRepository) : ViewModel() {
     private val _books = MutableSharedFlow<Response<Books>>()
-    val searchData = MutableStateFlow("")
     val books = _books.asSharedFlow()
 
-    fun fetchBooks(query: String = searchData.value) =
+    fun fetchBooks(query: String) =
         viewModelScope.launch {
             Timber.d("Start fetching data")
-            repo.fetchBooks(query).collect { value ->
-                _books.emit(value)
-            }
+            if (query != "") {
+                repo.fetchBooks(query).collect { value ->
+                    _books.emit(value)
+                }
+            } else _books.emit(Response.Success(Books(emptyList())))
         }
 
 }

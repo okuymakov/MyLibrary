@@ -3,18 +3,18 @@ package com.kuymakov.mylibrary.ui.main
 import android.os.Bundle
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.SearchView
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.kuymakov.mylibrary.R
 import com.kuymakov.mylibrary.base.BaseFragment
 import com.kuymakov.mylibrary.databinding.FragmentMainBinding
-import com.kuymakov.mylibrary.ui.search.SearchFragmentDirections
+
 
 class MainFragment : BaseFragment<FragmentMainBinding>() {
     override val inflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentMainBinding
@@ -24,6 +24,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
             childFragmentManager.findFragmentById(R.id.main_container) as NavHostFragment
         navHostFragment.navController
     }
+
     private val appBarConfiguration by lazy {
         AppBarConfiguration(
             setOf(R.id.nav_catalog, R.id.nav_my_books)
@@ -64,16 +65,17 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         (requireActivity() as MenuHost).addMenuProvider(object : MenuProvider {
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
                 menuInflater.inflate(R.menu.top_app_bar, menu)
-                val searchItem = menu.findItem(R.id.search)
-                val searchView = searchItem?.actionView as SearchView
-                searchView.setOnSearchClickListener {
-                    if (navController.currentDestination?.id != R.id.fragment_search) {
-                        navController.navigate(SearchFragmentDirections.actionGlobalSearchFragment())
-                    }
-                }
             }
 
-            override fun onMenuItemSelected(menuItem: MenuItem) = false
+            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+                return when (menuItem.itemId) {
+                    R.id.search -> {
+                        findNavController().navigate(MainFragmentDirections.actionMainFragmentToFragmentSearch())
+                        true
+                    }
+                    else -> false
+                }
+            }
         }, viewLifecycleOwner, Lifecycle.State.RESUMED)
     }
 
