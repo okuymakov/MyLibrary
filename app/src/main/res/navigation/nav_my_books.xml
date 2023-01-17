@@ -12,7 +12,11 @@
         tools:layout="@layout/fragment_my_books" >
         <action
             android:id="@+id/action_myBooksFragment_to_myBooksModalBottomSheet"
-            app:destination="@id/modalBottomSheet" />
+            app:destination="@id/modalBottomSheet"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
     <dialog
         android:id="@+id/modalBottomSheet"
@@ -21,7 +25,11 @@
         tools:layout="@layout/modal_bottom_sheet" >
         <action
             android:id="@+id/action_modalBottomSheet_to_booksReaderFragment"
-            app:destination="@id/booksReaderFragment" />
+            app:destination="@id/booksReaderFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
         <argument
             android:name="book"
             app:argType="com.kuymakov.mylibrary.models.MyBook" />
